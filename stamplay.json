@@ -1,0 +1,10 @@
+{
+  "appId": "food-findr",
+  "apiKey": "d668788935efbc4dfec404462b624777eb4f7e276f9856df356b95656d80580e",
+  "public": "./",
+  "ignore": [
+    "stamplay.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
