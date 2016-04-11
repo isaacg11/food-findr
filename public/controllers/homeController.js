@@ -17,13 +17,9 @@
     var urHere;
 
     Geo.getPlaces(lat, lng).then(function(res){
-      var arr = [];
-
-      for(var i = 0; i < res.length; i++){
-        var place = res[i].name;
-        arr.push(place);
-      }
-      $scope.desc = arr;
+      
+      console.log(res);
+      $scope.desc = res;
     });
 
 }

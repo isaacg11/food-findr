@@ -11,30 +11,52 @@
 	return {
 
     	getPlaces : function(){
-        var lat, lng, map;
+        var lat, lng, map, marker, image;
       	var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
     
         function showPosition(position) {
           lat = position.coords.latitude;
           lng = position.coords.longitude; 
+          var myLatLng = {lat: lat, lng: lng};
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: lat, lng: lng},
-            zoom: 15
+            zoom: 16
+          });
+
+          image = "/public/images/green-marker.png";
+          marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'YOU ARE HERE!',
+            icon: image,
+            animation: google.maps.Animation.BOUNCE
           });
 
           var request = {
             location:  new google.maps.LatLng(lat, lng),
-            radius: 1000,
-            query: "restaurant",
-            rankBy: google.maps.places.RankBy.DISTANCE,
+            types: ["restaurant", "bar"],
+            rankBy: google.maps.places.RankBy.DISTANCE
           };
 
           var service = new google.maps.places.PlacesService(map);
-          service.textSearch(request, callback);
+          service.nearbySearch(request, callback);
 
           function callback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
+              for(var i = 0; i<results.length; i++){
+                var place_name = results[i].name;
+                var place_lat = results[i].geometry.location.lat();
+                var place_lng = results[i].geometry.location.lng();
+                var place_LatLng = {lat: place_lat, lng: place_lng};
+                var place_image = "/public/images/blue-marker.png";
+                var place_marker = new google.maps.Marker({
+                  position: place_LatLng,
+                  map: map,
+                  title: place_name,
+                  icon: place_image,
+                });
+              }
               q.resolve(results);
             }
           }        
