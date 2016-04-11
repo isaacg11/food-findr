@@ -1,16 +1,9 @@
 <div ng-controller="homeController">
 
-<style>
-	html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    #map {
-        height: 50%;
-    }
-</style>
+<div id="map-canvas"></div>
 
-<div id="map"></div>
+<div ng-repeat="d in desc">
+	<p>{{d}}</p>
+</div>
 
 </div>
