@@ -1,4 +1,5 @@
 
+/*HOME*/
 html, body {
     height: 100%;
     margin: 0;
@@ -22,6 +23,9 @@ html, body {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+.header-Parent{
+	margin-bottom: 0px;
+}
 .title{
 	font-family: 'Pacifico', cursive;
 	color: #fff;
@@ -30,15 +34,30 @@ html, body {
 	margin-top: 35px;
 	color: #fff;
 }
-#map {
-	height: 50%;
+.dvdr{
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 20px;
+	height: 3px;
+	background-color: #ffff66;
+}
+#map {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	height: 50%;
+	border-radius: 5px;
 }
 .places-Parent{
-	border-radius: 40px;
-	background-color: #ffff66;
-	padding-left: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 10px;
+	background-color: #eeeeee;
+	padding: 10px 10px 10px 10px;
 	cursor: pointer;
+}
+
+/*DIRECTIONS*/
+#directions{
+	height: 50%;
 }

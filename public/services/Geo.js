@@ -63,6 +63,32 @@
         }
         return q.promise;
     	},
+      getLocation : function(){
+        var lat, lng, map, marker, image;
+        var q = $q.defer();
+        navigator.geolocation.getCurrentPosition(showPosition);
+    
+        function showPosition(position) {
+          lat = position.coords.latitude;
+          lng = position.coords.longitude; 
+          var myLatLng = {lat: lat, lng: lng};
+          map = new google.maps.Map(document.getElementById('directions'), {
+            center: {lat: lat, lng: lng},
+            zoom: 16
+          });
+
+          image = "/public/images/green-marker.png";
+          marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'YOU ARE HERE!',
+            icon: image,
+            animation: google.maps.Animation.BOUNCE
+          });
+          q.resolve(myLatLng);
+        }
+        return q.promise;
+      },
   	};
 
 }
