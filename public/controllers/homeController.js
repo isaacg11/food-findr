@@ -15,9 +15,10 @@
     var map;
     var gmarkers = [];
     var urHere;
+    var rating;
+    var place_rating;
 
     Geo.getPlaces(lat, lng).then(function(res){
-      
       console.log(res);
       $scope.desc = res;
     });

@@ -35,7 +35,7 @@
 
           var request = {
             location:  new google.maps.LatLng(lat, lng),
-            types: ["restaurant", "bar"],
+            types: ["restaurant", "bar", "meal_takeaway"],
             rankBy: google.maps.places.RankBy.DISTANCE
           };
 
@@ -49,7 +49,7 @@
                 var place_lat = results[i].geometry.location.lat();
                 var place_lng = results[i].geometry.location.lng();
                 var place_LatLng = {lat: place_lat, lng: place_lng};
-                var place_image = "/public/images/blue-marker.png";
+                var place_image = "/public/images/blue-pin.png";
                 var place_marker = new google.maps.Marker({
                   position: place_LatLng,
                   map: map,

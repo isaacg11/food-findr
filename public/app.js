@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  var app = angular.module('stamplay', ['ui.router','ngStamplay','uiGmapgoogle-maps','angular-input-stars'])
+  var app = angular.module('stamplay', ['ui.router','ngStamplay','uiGmapgoogle-maps'])
   .config(Config);
   Config.$inject = ['$stateProvider', '$urlRouterProvider','uiGmapGoogleMapApiProvider'];
 
