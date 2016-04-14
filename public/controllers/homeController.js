@@ -8,18 +8,7 @@
 
   function homeController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window){
 
-    var infowindow;
-    var lat;
-    var lng;
-    var places;
-    var map;
-    var gmarkers = [];
-    var urHere;
-    var rating;
-    var place_rating;
-
-    Geo.getPlaces(lat, lng).then(function(res){
-      console.log(res);
+    Geo.getPlaces().then(function(res){
       $scope.desc = res;
     });
 

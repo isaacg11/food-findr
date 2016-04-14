@@ -8,12 +8,19 @@
 
   function directionsController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window, $stateParams){
 
+//GLOBALS
+    var sep, coords, lat, lng, place_coords;
+
     if($stateParams) {
-      console.log($stateParams.search);
+      coords = $stateParams.search;
+      sep = coords.split(',');
+      place_coords = {
+        lat: Number(sep[0]), lng: Number(sep[1])
+      };
     }
 
-    Geo.getLocation().then(function(res){
-      console.log(res);
+
+    Geo.getLocation(place_coords).then(function(res){
     });
 
 }

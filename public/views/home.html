@@ -17,7 +17,9 @@
 		<div id="map"></div>
 <!--PLACES OUTPUT-->
 		<div ng-repeat="d in desc" class="row places-Parent z-depth-1 hoverable">
-			<div class="col s12" ui-sref="Directions({search: d.geometry.location})">
+			<div 
+				class="col s12" 
+				ui-sref="Directions({search: [d.geometry.location.lat(), d.geometry.location.lng()]})">
 				<h6><b>{{d.name}}</b> - {{d.vicinity}}</h6>
 			</div>
 		</div>
