@@ -9,8 +9,9 @@
   function directionsController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window, $stateParams){
 
 //GLOBALS
-    var sep, coords, lat, lng, place_coords;
+    var sep, coords, lat, lng, place_coords, instructions, step;
 
+//GET PLACE COORDS FROM STATE PARAM
     if($stateParams) {
       coords = $stateParams.search;
       sep = coords.split(',');
@@ -19,8 +20,16 @@
       };
     }
 
-
-    Geo.getLocation(place_coords).then(function(res){
+//GET DIRECTIONS
+    Geo.getDirections(place_coords).then(function(res){
+      instructions = res.routes[0].legs[0].steps;
+      for(var i = 0; i<instructions.length; i++){
+        step = instructions[i].instructions;
+        var elemStrName = "<div>" + "<ul>";
+        elemStrName += "<li>" +"- "+step + "</li>"; 
+        elemStrName += "</ul>" + "</div>";
+        document.getElementById('output').innerHTML += elemStrName;
+      }
     });
 
 }

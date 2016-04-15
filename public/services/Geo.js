@@ -14,16 +14,17 @@
         var lat, lng, map, marker, image;
       	var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
-    
+//GET CURRENT LOCATION   
         function showPosition(position) {
           lat = position.coords.latitude;
           lng = position.coords.longitude; 
           var myLatLng = {lat: lat, lng: lng};
+//INITIALIZE MAP 
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: lat, lng: lng},
             zoom: 16
           });
-
+//MARKERS - USER
           image = "/public/images/green-marker.png";
           marker = new google.maps.Marker({
             position: myLatLng,
@@ -32,7 +33,7 @@
             icon: image,
             animation: google.maps.Animation.BOUNCE
           });
-
+//SEARCH REQUEST
           var request = {
             location:  new google.maps.LatLng(lat, lng),
             types: ["restaurant", "bar", "meal_takeaway"],
@@ -63,54 +64,44 @@
         }
         return q.promise;
     	},
-      getLocation : function(coords){
+      getDirections : function(coords){
         var lat, lng, map, marker, image, myLatLng, placeLatLng, path, flightPath;
         var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
-    
+//GET CURRENT LOCATION   
         function showPosition(position) {
           lat = position.coords.latitude;
           lng = position.coords.longitude;
           placeLatLng = {lat: coords.lat, lng: coords.lng};
           myLatLng = {lat: lat, lng: lng};
-
+//INITIALIZE MAP 
           map = new google.maps.Map(document.getElementById('directions'), {
             center: {lat: lat, lng: lng},
-            zoom: 16
+            zoom: 16,
           });
+//GET DIRECTIONS
+          var directionsService = new google.maps.DirectionsService();
+          var directionsRequest = {
+            origin: myLatLng,
+            destination: placeLatLng,
+            travelMode: google.maps.DirectionsTravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC
+          };
 
-          path = [
-            placeLatLng,
-            myLatLng
-          ];
-
-          flightPath = new google.maps.Polyline({
-            path: path,
-            geodesic: true,
-            strokeColor: '#FF0000',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-          });
-
-          flightPath.setMap(map);
-
-          image = "/public/images/green-marker.png";
-          marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'YOU ARE HERE!',
-            icon: image,
-            animation: google.maps.Animation.BOUNCE
-          });
-
-          var place_image = "/public/images/blue-pin.png";
-          var place_marker = new google.maps.Marker({
-            position: placeLatLng,
-            map: map,
-            title: 'DESTINATION',
-            icon: place_image,
-          });
-          q.resolve();
+          directionsService.route(
+          directionsRequest,
+          function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+              new google.maps.DirectionsRenderer({
+                map: map,
+                directions: response
+              });
+              q.resolve(response);
+            }
+            else
+              console.log(status);
+            }
+          );
         }
         return q.promise;
       },
