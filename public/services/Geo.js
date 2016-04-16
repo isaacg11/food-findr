@@ -11,7 +11,12 @@
 	return {
 
     	getPlaces : function(){
-        var lat, lng, map, marker, image;
+        var lat, 
+            lng, 
+            map, 
+            marker, 
+            image;
+
       	var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
 //GET CURRENT LOCATION   
@@ -65,7 +70,17 @@
         return q.promise;
     	},
       getDirections : function(coords){
-        var lat, lng, map, marker, image, myLatLng, placeLatLng, path, flightPath;
+        var lat, 
+            lng, 
+            map, 
+            marker, 
+            image, 
+            myLatLng, 
+            placeLatLng, 
+            path, 
+            flightPath,
+            directions;
+
         var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
 //GET CURRENT LOCATION   
@@ -85,7 +100,7 @@
             origin: myLatLng,
             destination: placeLatLng,
             travelMode: google.maps.DirectionsTravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.METRIC
+            unitSystem: google.maps.UnitSystem.USCS
           };
 
           directionsService.route(
@@ -96,14 +111,43 @@
                 map: map,
                 directions: response
               });
-              q.resolve(response);
+              directions = response;
+              q.resolve(directions);
             }
-            else
-              console.log(status);
-            }
-          );
+          });
         }
         return q.promise;
+      },
+      getDetails : function(id, coords){
+//GET CURRENT LOCATION   
+        var lat = coords.lat;
+        var lng = coords.lng;
+        var placeLatLng = {lat: lat, lng: lng};
+        var q = $q.defer();
+        var map = new google.maps.Map(document.getElementById('details'), {
+          center: placeLatLng,
+          zoom: 16,
+        });
+
+        var place_image = "/public/images/blue-pin.png";
+        var place_marker = new google.maps.Marker({
+          position: placeLatLng,
+          map: map,
+          title: 'name',
+          icon: place_image,
+        });
+
+        var request = {
+          placeId: id
+        };
+
+        var service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, callback);
+
+        function callback(place, status) {
+          q.resolve(place);
+        }
+      return q.promise;
       },
   	};
 

@@ -1,4 +1,4 @@
-<div ng-controller="directionsController">
+<div ng-controller="detailsController">
 
 	<div class="row background-homePage">
 	<div class="col s2">.</div>
@@ -14,10 +14,13 @@
           	</div>
         </div>
         <div class="dvdr"></div>
-		<div id="directions"></div>
+		<div id="details"></div>
 		
 <!--PLACES OUTPUT-->
-		<div class="row places-Parent z-depth-1 hoverable">
+		<div class="row details-Parent">
+			<h5>{{name}}<span class="right">{{phone}}</span></h5>
+			<p>{{address}}</p>
+			<p>Rating: {{rating}}
 			<p id="output"></p>
 		</div>
 	</div>

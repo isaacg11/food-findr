@@ -10,9 +10,9 @@ function Config($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) 
     url: '/',
     templateUrl: './public/views/home.html'
   }).
-  state('Directions',{
-    url: '/directions/:search',
-    templateUrl: './public/views/directions.html'
+  state('Details',{
+    url: '/details/:search',
+    templateUrl: './public/views/details.html'
   });
   uiGmapGoogleMapApiProvider.configure({
     key: 'AIzaSyBTQ9PMGuNfxnGXjtpD_-JYAOqc955zojk',

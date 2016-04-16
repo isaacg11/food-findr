@@ -9,7 +9,7 @@
   function homeController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window){
 
     Geo.getPlaces().then(function(res){
-      $scope.desc = res;
+    	$scope.desc = res;
     });
 
 }

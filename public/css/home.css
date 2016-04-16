@@ -57,7 +57,19 @@ html, body {
 	cursor: pointer;
 }
 
-/*DIRECTIONS*/
-#directions{
+/*DETAILS*/
+#details{
 	height: 50%;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+.details-Parent{
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #eeeeee;
+	padding: 10px 10px 10px 10px;
+	cursor: pointer;
+	border-radius: 5px;
 }
