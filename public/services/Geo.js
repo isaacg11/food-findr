@@ -119,29 +119,38 @@
         return q.promise;
       },
       getDetails : function(id, coords){
+        var lat,
+            lng,
+            placeLatLng,
+            map,
+            place_image,
+            place_marker,
+            request,
+            service;
+
 //GET CURRENT LOCATION   
-        var lat = coords.lat;
-        var lng = coords.lng;
-        var placeLatLng = {lat: lat, lng: lng};
+        lat = coords.lat;
+        lng = coords.lng;
+        placeLatLng = {lat: lat, lng: lng};
         var q = $q.defer();
-        var map = new google.maps.Map(document.getElementById('details'), {
+        map = new google.maps.Map(document.getElementById('details'), {
           center: placeLatLng,
-          zoom: 16,
+          zoom: 19,
         });
 
-        var place_image = "/public/images/blue-pin.png";
-        var place_marker = new google.maps.Marker({
+        place_image = "/public/images/blue-pin.png";
+        place_marker = new google.maps.Marker({
           position: placeLatLng,
           map: map,
           title: 'name',
           icon: place_image,
         });
 
-        var request = {
+        request = {
           placeId: id
         };
 
-        var service = new google.maps.places.PlacesService(map);
+        service = new google.maps.places.PlacesService(map);
         service.getDetails(request, callback);
 
         function callback(place, status) {
