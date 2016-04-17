@@ -14,13 +14,10 @@
         lat, 
         lng, 
         place_coords,
-        place_id, 
-        directions,
-        duration, 
-        instructions, 
-        step, 
-        distance, 
-        elemStrName;
+        place_id,
+        reviewArr,
+        time;
+
 
 //GET PLACE COORDS FROM STATE PARAM
     if($stateParams) {
@@ -37,6 +34,13 @@
 
 //GET DETAILS AND DISPLAY ON VIEW
       Geo.getDetails(place_id, place_coords).then(function(details){
+        reviewArr = details.reviews;
+        var reviews = [];
+        for(var i = 0; i<reviewArr.length; i++) {
+          reviews.push(reviewArr[i]);
+        }
+
+        $scope.reviews = reviews;
         $scope.name = details.name;
         $scope.address = details.formatted_address;
         $scope.phone = details.formatted_phone_number;

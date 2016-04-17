@@ -23,10 +23,15 @@
 			<p><i class="fa fa-phone" aria-hidden="true"></i> {{phone}}</p>
 			<div ng-repeat = "a in arr">
 				<a 
-					ui-sref="Directions({search: [{{a.lat}}, {{a.lng}}]})">Directions</a> | <a href="Reviews">Reviews
+					ui-sref="Directions({search: [{{a.lat}}, {{a.lng}}]})">Get Directions</a>
 				</a>
 			</div>
 			<p id="output"></p>
+			<div class="reviews-Parent" ng-repeat="r in reviews">
+				<p>{{r.author_name}} | <em>{{r.time * 1000 | date:'MM-dd-yyyy @ h:mma'}}</em></p>
+				<p></p>
+				<p>{{r.text}}</p>
+			</div>
 		</div>
 	</div>
 	<div class="col s2">.</div>

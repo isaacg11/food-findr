@@ -119,3 +119,8 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	padding-bottom: 10px;
 	border-bottom: 1px solid #cccccc;
 }
+/*REVIEWS*/
+.reviews-Parent{
+	border-top: 1px solid #eeeeee;
+	color: #cccccc;
+}
