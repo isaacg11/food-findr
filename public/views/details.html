@@ -2,10 +2,10 @@
 
 	<div class="row background-homePage">
 	<div class="col s2">.</div>
-	<div class="col s8 z-depth-2 background-centerDiv">
+	<div class="col s8 z-depth-2 details-centerDiv">
 		<div class="row header-Parent">
 			<div class="col s6">
-				<h2 class="title">Food Findr</h2>
+				<h2 class="app-title" ui-sref="Home">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
 				<i class="fa fa-search prefix" aria-hidden="true"></i>
@@ -18,9 +18,14 @@
 		
 <!--PLACES OUTPUT-->
 		<div class="row details-Parent">
-			<h5>{{name}}<span class="right">{{phone}}</span></h5>
-			<p>{{address}}</p>
-			<p>Rating: <input-stars max="5" ng-model="rating" readonly="true"></input-stars></p>
+			<h5 class="details-name">{{name}} <input-stars max="5" ng-model="rating" readonly="true"></input-stars></h5>
+			<p><i class="fa fa-map-marker" aria-hidden="true"></i> {{address}}</p>
+			<p><i class="fa fa-phone" aria-hidden="true"></i> {{phone}}</p>
+			<div ng-repeat = "a in arr">
+				<a 
+					ui-sref="Directions({search: [{{a.lat}}, {{a.lng}}]})">Directions</a> | <a href="Reviews">Reviews
+				</a>
+			</div>
 			<p id="output"></p>
 		</div>
 	</div>

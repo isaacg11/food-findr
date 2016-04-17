@@ -13,6 +13,10 @@ function Config($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) 
   state('Details',{
     url: '/details/:search',
     templateUrl: './public/views/details.html'
+  }).
+  state('Directions',{
+    url: '/directions/:search',
+    templateUrl: './public/views/directions.html'
   });
   uiGmapGoogleMapApiProvider.configure({
     key: 'AIzaSyBTQ9PMGuNfxnGXjtpD_-JYAOqc955zojk',

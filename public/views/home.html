@@ -2,10 +2,10 @@
 
 <div class="row background-homePage">
 	<div class="col s2">.</div>
-	<div class="col s8 z-depth-2 background-centerDiv">
+	<div class="col s8 z-depth-2 places-centerDiv">
 		<div class="row header-Parent">
 			<div class="col s6">
-				<h2 class="title">Food Findr</h2>
+				<h2 class="app-title">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
 				<i class="fa fa-search prefix" aria-hidden="true"></i>
@@ -16,11 +16,11 @@
         <div class="dvdr"></div>
 		<div id="map"></div>
 <!--PLACES OUTPUT-->
-		<div ng-repeat="d in desc" class="row places-Parent z-depth-1 hoverable">
+		<div ng-repeat="d in desc" class="row places-Parent">
 			<div 
 				class="col s12" 
 				ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
-				<h6><b>{{d.name}}</b> - {{d.vicinity}}</h6>
+				<p class="places-name">{{d.name}}</p>
 			</div>
 		</div>
 	</div>

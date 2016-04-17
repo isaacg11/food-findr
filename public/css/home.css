@@ -6,6 +6,7 @@ html, body {
     padding: 0;
 }
 .background-homePage{
+	margin-bottom: 0px;
 	background:
 	linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
 	linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -16,22 +17,33 @@ html, body {
 	background-color: #131313;
 	background-size: 20px 20px;
 }
-.background-centerDiv{
+.places-centerDiv{
 	margin-top:20px;
 	border-radius: 10px;
-	background: linear-gradient(#333333, #eeeeee);
+	background: #333333;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 .header-Parent{
 	margin-bottom: 0px;
 }
-.title{
+.app-title{
 	font-family: 'Pacifico', cursive;
 	color: #fff;
+	cursor: pointer;
 }
 .search-Parent{
 	margin-top: 35px;
+	color: #fff;
+}
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+.input-field .icon_prefix.active {
+	color: #fff;
+}
+.input-field .prefix.active {
 	color: #fff;
 }
 .dvdr{
@@ -49,15 +61,34 @@ html, body {
 	border-radius: 5px;
 }
 .places-Parent{
+	margin-bottom: 0px;
 	margin-left: 10px;
 	margin-right: 10px;
-	border-radius: 10px;
-	background-color: #eeeeee;
-	padding: 10px 10px 10px 10px;
+	border-top: 1px solid #cccccc;
+	padding: 5px 5px 5px 5px;
 	cursor: pointer;
+	color: #fff;
+	font-size: 20px;
 }
-
+.places-Parent:hover{
+	margin-bottom: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-top: 1px solid #cccccc;
+	padding: 5px 5px 5px 5px;
+	cursor: pointer;
+	color: #000000;
+	background-color: #eeeeee;
+}
 /*DETAILS*/
+.details-centerDiv{
+	margin-top:20px;
+	border-radius: 10px;
+	background: #333333;
+	padding-left: 10px;
+	padding-right: 10px;
+	min-height: 100vh;
+}
 #details{
 	height: 50%;
 	margin-left: 10px;
@@ -66,10 +97,25 @@ html, body {
 }
 .details-Parent{
 	margin-top: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
-	background-color: #eeeeee;
-	padding: 10px 10px 10px 10px;
-	cursor: pointer;
-	border-radius: 5px;
+	border-top: #eeeeee;
+	border-bottom: #eeeeee;
+	padding: 15px 15px 15px 15px;
+	color: #fff;
+}
+.details-name{
+	margin-bottom: 0px;
+	border-bottom: 1px solid #cccccc;
+}
+/*DIRECTIONS*/
+.directions-Parent{
+	margin-top: 10px;
+	border-top: #eeeeee;
+	border-bottom: #eeeeee;
+	padding: 15px 15px 15px 15px;
+	color: #f2f2f2;
+}
+.directions-name{
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #cccccc;
 }

@@ -1,0 +1,28 @@
+<div ng-controller="directionsController">
+
+	<div class="row background-homePage">
+		<div class="col s2">.</div>
+		<div class="col s8 z-depth-2 details-centerDiv">
+			<div class="row header-Parent">
+				<div class="col s6">
+					<h2 class="app-title" ui-sref="Home">Food Findr</h2>
+				</div>
+				<div class="col s6 input-field search-Parent">
+					<i class="fa fa-search prefix" aria-hidden="true"></i>
+          			<input id="icon_prefix" type="text" class="validate">
+          			<label for="icon_prefix">Search</label>
+          		</div>
+        	</div>
+        	<div class="dvdr"></div>
+			<div id="map"></div>
+		
+<!--PLACES OUTPUT-->
+			<div class="row directions-Parent">
+				<h5 class="directions-name">Directions</h5>
+				<span id="output"></span>
+			</div>
+		</div>
+		<div class="col s2">.</div>
+	</div>
+<!--CLOSING DIV-->
+</div>

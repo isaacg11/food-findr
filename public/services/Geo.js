@@ -12,10 +12,13 @@
 
     	getPlaces : function(){
         var lat, 
-            lng, 
+            lng,
+            myLatLng, 
             map, 
             marker, 
-            image;
+            image,
+            request,
+            service;
 
       	var q = $q.defer();
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -23,7 +26,7 @@
         function showPosition(position) {
           lat = position.coords.latitude;
           lng = position.coords.longitude; 
-          var myLatLng = {lat: lat, lng: lng};
+          myLatLng = {lat: lat, lng: lng};
 //INITIALIZE MAP 
           map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: lat, lng: lng},
@@ -39,13 +42,13 @@
             animation: google.maps.Animation.BOUNCE
           });
 //SEARCH REQUEST
-          var request = {
+          request = {
             location:  new google.maps.LatLng(lat, lng),
             types: ["restaurant", "bar", "meal_takeaway"],
             rankBy: google.maps.places.RankBy.DISTANCE
           };
 
-          var service = new google.maps.places.PlacesService(map);
+          service = new google.maps.places.PlacesService(map);
           service.nearbySearch(request, callback);
 
           function callback(results, status) {
@@ -89,10 +92,11 @@
           lng = position.coords.longitude;
           placeLatLng = {lat: coords.lat, lng: coords.lng};
           myLatLng = {lat: lat, lng: lng};
+
 //INITIALIZE MAP 
-          map = new google.maps.Map(document.getElementById('directions'), {
+          map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: lat, lng: lng},
-            zoom: 16,
+            zoom: 16
           });
 //GET DIRECTIONS
           var directionsService = new google.maps.DirectionsService();
