@@ -8,9 +8,16 @@
 				<h2 class="app-title">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
-				<i class="fa fa-search prefix" aria-hidden="true"></i>
-          		<input id="icon_prefix" type="text" class="validate">
-          		<label for="icon_prefix">Search</label>
+				<form>
+					<i class="fa fa-search prefix" aria-hidden="true"></i>
+          			<input 
+          				type="text" 
+          				g-places-autocomplete ng-model="search"/>
+          			<input 
+          				type="submit" 
+          				value="Submit" 
+          				ui-sref="Details({search: [search.geometry.access_points[0].location.lat, search.geometry.access_points[0].location.lng, search.place_id, search]})"/>
+          		</form>
           	</div>
         </div>
         <div class="dvdr"></div>

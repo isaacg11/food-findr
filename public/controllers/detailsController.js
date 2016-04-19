@@ -9,18 +9,23 @@
   function detailsController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window, $stateParams){
 
 //GLOBALS
-    var sep, 
+    var params,
+        emptyParams,
+        sep, 
         coords, 
         lat, 
         lng, 
         place_coords,
         place_id,
         reviewArr,
-        time;
+        time,
+        search;
 
 
-//GET PLACE COORDS FROM STATE PARAM
-    if($stateParams) {
+//IF COORDS EXISTS, SEARCH FOR THAT SINGLE LOCATION
+    params = $stateParams.search;
+    emptyParams = params[0]+""+params[1]+""+params[2];
+    if(emptyParams != ",,,") {
       coords = $stateParams.search;
       sep = coords.split(',');
       place_coords = {
@@ -30,23 +35,37 @@
       var arr = [];
       arr.push(place_coords);
       $scope.arr = arr;
-    }
 
-//GET DETAILS AND DISPLAY ON VIEW
       Geo.getDetails(place_id, place_coords).then(function(details){
         reviewArr = details.reviews;
-        var reviews = [];
-        for(var i = 0; i<reviewArr.length; i++) {
-          reviews.push(reviewArr[i]);
+        if(reviewArr === undefined){
+          $scope.name = details.name;
+          $scope.address = details.formatted_address;
+          $scope.phone = details.formatted_phone_number;
+          $scope.rating = details.rating;
+          console.log('no reviews');
         }
-
-        $scope.reviews = reviews;
-        $scope.name = details.name;
-        $scope.address = details.formatted_address;
-        $scope.phone = details.formatted_phone_number;
-        $scope.rating = details.rating;
-        $scope.website = details.website;
+        else{
+          var reviews = [];
+          for(var i = 0; i<reviewArr.length; i++) {
+            reviews.push(reviewArr[i]);
+          }
+          $scope.reviews = reviews;
+          $scope.name = details.name;
+          $scope.address = details.formatted_address;
+          $scope.phone = details.formatted_phone_number;
+          $scope.rating = details.rating;
+        }
+        
     });
+    }
+    else{
+      $scope.textSearch = true;
+      search = params.replace(/,/g, '');
+      Geo.getSearch(search).then(function(res){
+        $scope.desc = res;
+      });
+    }
 
 }
 })();

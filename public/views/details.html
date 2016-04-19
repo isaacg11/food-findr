@@ -16,21 +16,28 @@
         <div class="dvdr"></div>
 		<div id="details"></div>
 		
-<!--PLACES OUTPUT-->
-		<div class="row details-Parent">
+<!--PLACES OUTPUT (IF COORDS EXISTS) -->
+		<div ng-hide="textSearch" class="row details-Parent">
 			<h5 class="details-name">{{name}} <input-stars max="5" ng-model="rating" readonly="true"></input-stars></h5>
 			<p><i class="fa fa-map-marker" aria-hidden="true"></i> {{address}}</p>
 			<p><i class="fa fa-phone" aria-hidden="true"></i> {{phone}}</p>
 			<div ng-repeat = "a in arr">
 				<a 
-					ui-sref="Directions({search: [{{a.lat}}, {{a.lng}}]})">Get Directions</a>
+					ui-sref="Directions({search: [{{a.lat}}, {{a.lng}}]})">Get Directions
 				</a>
 			</div>
 			<p id="output"></p>
 			<div class="reviews-Parent" ng-repeat="r in reviews">
 				<p>{{r.author_name}} | <em>{{r.time * 1000 | date:'MM-dd-yyyy @ h:mma'}}</em></p>
-				<p></p>
 				<p>{{r.text}}</p>
+			</div>
+		</div>
+<!--PLACES OUTPUT (IF NO COORDS) -->
+		<div ng-repeat="d in desc" class="row places-Parent">
+			<div 
+				class="col s12" 
+				ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
+				<p class="places-name">{{d.name}}</p>
 			</div>
 		</div>
 	</div>
