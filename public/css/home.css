@@ -27,6 +27,12 @@ html, body {
 .header-Parent{
 	margin-bottom: 0px;
 }
+.searchBtn{
+	height: 0px;
+	background-color: #333333;
+	padding: 0px 0px 0px 0px;
+	border-color: 1px solid #333333;
+}
 .app-title{
 	font-family: 'Pacifico', cursive;
 	color: #fff;

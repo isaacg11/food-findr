@@ -10,10 +10,12 @@
 			<div class="col s6 input-field search-Parent">
 				<form>
 					<i class="fa fa-search prefix" aria-hidden="true"></i>
-          			<input 
+          			<input
           				type="text" 
-          				g-places-autocomplete ng-model="search"/>
-          			<input 
+          				g-places-autocomplete options="autocompleteOptions" 
+          				ng-model="search"/>
+          			<input
+          				class="waves-effect waves-light btn searchBtn" 
           				type="submit" 
           				value="Submit" 
           				ui-sref="Details({search: [search.geometry.access_points[0].location.lat, search.geometry.access_points[0].location.lng, search.place_id, search]})"/>
