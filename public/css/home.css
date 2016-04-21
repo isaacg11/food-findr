@@ -1,24 +1,14 @@
 
 /*HOME*/
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-.background-homePage{
-	margin-bottom: 0px;
-	background:
-	linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-	linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-	linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-	linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-	linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-	linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-	background-color: #131313;
-	background-size: 20px 20px;
+html { 
+  background: url('/public/images/burger.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .places-centerDiv{
-	margin-top:20px;
+	margin-top:40px;
 	border-radius: 10px;
 	background: #333333;
 	padding-left: 10px;
@@ -65,6 +55,22 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	margin-bottom: 20px;
 	height: 50%;
 	border-radius: 5px;
+}
+.findBtn{
+	margin-top: 5px;
+	background-color: #333333;
+	border: 1px solid #fff;
+	width: 100%;
+	height: 40px;
+}
+.findBtn:hover{
+	margin-top: 5px;
+	background-color: #fff;
+	border: 1px solid #333333;
+	width: 100%;
+	height: 40px;
+	color: #000;
+	font-weight: bold;
 }
 .places-Parent{
 	margin-bottom: 0px;

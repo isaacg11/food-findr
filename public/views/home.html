@@ -1,6 +1,6 @@
 <div ng-controller="homeController">
 
-<div class="row background-homePage">
+<div class="row background">
 	<div class="col s2">.</div>
 	<div class="col s8 z-depth-2 places-centerDiv">
 		<div class="row header-Parent">
@@ -11,6 +11,7 @@
 				<form>
 					<i class="fa fa-search prefix" aria-hidden="true"></i>
           			<input
+          				placeholder="Search..."
           				type="text" 
           				g-places-autocomplete options="autocompleteOptions" 
           				ng-model="search"/>
@@ -20,16 +21,44 @@
           				value="Submit" 
           				ui-sref="Details({search: [search.geometry.access_points[0].location.lat, search.geometry.access_points[0].location.lng, search.place_id, search]})"/>
           		</form>
-          	</div>
+      </div>
+    </div>
+    <div class="dvdr"></div>
+    <div class="row">
+      <div class="col s3">
+        <select class="browser-default">
+          <option value="" disabled selected>All Food</option>
+          <option value="1">Fast Food</option>
+          <option value="2">Diner</option>
+          <option value="3">Mexican</option>
+          <option value="4">BBQ</option>
+          <option value="5">Chinese</option>
+          <option value="6">Sushi</option>
+          <option value="7">Indian</option>
+          </select>
         </div>
-        <div class="dvdr"></div>
+        <div class="col s3">
+          <select class="browser-default">
+          <option value="" disabled selected>1 Mile</option>
+          <option value="1">2 Miles</option>
+          <option value="2">3 Miles</option>
+          <option value="2">4 Miles</option>
+          <option value="2">5 Miles</option>
+          </select>
+        </div>
+        <div class="col s2">
+          <a class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
+        </div>
+        <div class="col s2">.</div>
+      </div>
 		<div id="map"></div>
 <!--PLACES OUTPUT-->
 		<div ng-repeat="d in desc" class="row places-Parent">
 			<div 
 				class="col s12" 
 				ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
-				<p class="places-name">{{d.name}}</p>
+        <p class="places-name">{{d.name}}</p>
+        <p class="places-name">{{d.vicinity}}</p>
 			</div>
 		</div>
 	</div>

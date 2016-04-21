@@ -24,7 +24,9 @@
 		}
 
     	Geo.getPlaces().then(function(res){
+
     		$scope.desc = res;
+        console.log(res[0].photos);
     	});
 
 }
