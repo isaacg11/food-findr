@@ -1,10 +1,10 @@
 <div ng-controller="homeController">
 
-<div class="row background">
+<div class="row">
 	<div class="col s2">.</div>
 	<div class="col s8 z-depth-2 places-centerDiv">
 		<div class="row header-Parent">
-			<div class="col s6">
+			<div class="col s6 places-title">
 				<h2 class="app-title">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="dvdr"></div>
-    <div class="row">
+    <div class="row places-dropdown">
       <div class="col s3">
         <select class="browser-default">
           <option value="" disabled selected>All Food</option>
@@ -51,16 +51,22 @@
         </div>
         <div class="col s2">.</div>
       </div>
+<!--MAP-->
 		<div id="map"></div>
+    <p class="places-info">Food Results</p>
 <!--PLACES OUTPUT-->
 		<div ng-repeat="d in desc" class="row places-Parent">
 			<div 
-				class="col s12" 
+				class="col s12 places-detailsBtn" 
 				ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
         <p class="places-name">{{d.name}}</p>
-        <p class="places-name">{{d.vicinity}}</p>
 			</div>
 		</div>
+    <div class="row footer">
+      <div class="col s12 places-footer center">
+        <p>@2016 Food Findr</p>
+      </div>
+    </div>
 	</div>
 	<div class="col s2">.</div>
 </div>
