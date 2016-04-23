@@ -7,8 +7,11 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+.blend{
+	color: #cccccc !important;
+}
 .places-centerDiv{
-	margin-top:40px;
+	/*margin-top:40px;*/
 	border-radius: 10px;
 	background: #333333;
 }

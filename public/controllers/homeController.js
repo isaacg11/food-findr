@@ -4,12 +4,28 @@
   'use strict';
   angular.module('stamplay')
   .controller('homeController', homeController);
-  homeController.$inject = ['Geo','$state',"$http","$scope", "$stamplay",'uiGmapGoogleMapApi','$window'];
+  homeController.$inject = [
+    'Geo',
+    '$state',
+    "$http",
+    "$scope", 
+    "$stamplay",
+    'uiGmapGoogleMapApi',
+    '$window'
+  ];
 
-  function homeController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window){
-
-  	    navigator.geolocation.getCurrentPosition(showPosition);
-//GET CURRENT LOCATION   
+  function homeController(
+    Geo, 
+    $state, 
+    $http, 
+    $scope, 
+    $stamplay, 
+    uiGmapGoogleMapApi, 
+    $window
+    )
+  {
+//FETCH AND DISPLAY PLACES CLOSE BY ON PAGE LOAD 
+    navigator.geolocation.getCurrentPosition(showPosition);
         function showPosition(position) {
           var lat = position.coords.latitude;
           var lng = position.coords.longitude; 
@@ -21,13 +37,10 @@
         	location: new google.maps.LatLng(lat, lng),
         	radius: 1000,
     	  };           
-		}
+		  }
 
     	Geo.getPlaces().then(function(res){
-
     		$scope.desc = res;
-        console.log(res[0].photos);
     	});
-
-}
-})();
+  }
+  })();

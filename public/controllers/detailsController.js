@@ -1,14 +1,30 @@
-
 //CONTROLLER
 (function() {
   'use strict';
   angular.module('stamplay')
   .controller('detailsController', detailsController);
-  detailsController.$inject = ['Geo','$state',"$http","$scope", "$stamplay",'uiGmapGoogleMapApi','$window','$stateParams'];
+  detailsController.$inject = [
+    'Geo',
+    '$state',
+    "$http",
+    "$scope", 
+    "$stamplay",
+    'uiGmapGoogleMapApi',
+    '$window',
+    '$stateParams'
+  ];
 
-  function detailsController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window, $stateParams){
-
-//GLOBALS
+  function detailsController(
+    Geo, 
+    $state, 
+    $http, $scope, 
+    $stamplay, 
+    uiGmapGoogleMapApi, 
+    $window, 
+    $stateParams
+    )
+  {
+//VARIABLES
     var params,
         emptyParams,
         sep, 
@@ -20,8 +36,6 @@
         reviewArr,
         time,
         search;
-
-
 //IF COORDS EXISTS, SEARCH FOR THAT SINGLE LOCATION
     params = $stateParams.search;
     emptyParams = params[0]+""+params[1]+""+params[2];
@@ -66,6 +80,5 @@
         $scope.desc = res;
       });
     }
-
-}
+  }
 })();

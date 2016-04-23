@@ -6,11 +6,10 @@
   angular.module('stamplay')
   .factory('Geo', Geo);
 
-  function Geo($http, $q, $window) {
-
+  function Geo($http, $q, $window){
 	return {
-
     	getPlaces : function(){
+//VARIABLES  
         var lat, 
             lng,
             myLatLng, 
@@ -73,6 +72,7 @@
         return q.promise;
     	},
       getDirections : function(coords){
+//VARIABLES   
         var lat, 
             lng, 
             map, 
@@ -123,6 +123,7 @@
         return q.promise;
       },
       getDetails : function(id, coords){
+//VARIABLES   
         var lat,
             lng,
             placeLatLng,
@@ -163,6 +164,7 @@
       return q.promise;
       },
       getSearch : function(search){
+//VARIABLES   
         var lat, 
             lng,
             myLatLng, 
@@ -199,6 +201,74 @@
             radius: 1000,
             bounds: map.getBounds(),
             query: search,
+            types: ['food', 'restaurant'],
+            rankBy: google.maps.places.RankBy.DISTANCE,
+          };
+
+          service = new google.maps.places.PlacesService(map);
+          service.textSearch(request, callback);
+
+          function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+              for(var i = 0; i<results.length; i++){
+                var place_name = results[i].name;
+                var place_lat = results[i].geometry.location.lat();
+                var place_lng = results[i].geometry.location.lng();
+                var place_LatLng = {lat: place_lat, lng: place_lng};
+                var place_image = "/public/images/blue-pin.png";
+                var place_marker = new google.maps.Marker({
+                  position: place_LatLng,
+                  map: map,
+                  title: place_name,
+                  icon: place_image,
+                });
+              }
+              q.resolve(results);
+            }
+          }
+        }
+       return q.promise;
+      },
+      advanceSearch : function(type, distance){
+  //VARIABLES   
+        var lat, 
+            lng,
+            myLatLng, 
+            map, 
+            marker, 
+            image,
+            request,
+            service;
+
+        var q = $q.defer();
+        navigator.geolocation.getCurrentPosition(showPosition);
+//GET CURRENT LOCATION   
+        function showPosition(position) {
+          lat = position.coords.latitude;
+          lng = position.coords.longitude; 
+          myLatLng = {lat: lat, lng: lng};
+//INITIALIZE MAP 
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: lat, lng: lng},
+            zoom: 16
+          });
+//MARKERS - USER
+          image = "/public/images/green-marker.png";
+          marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'YOU ARE HERE!',
+            icon: image,
+            animation: google.maps.Animation.BOUNCE
+          });
+
+          console.log(type);
+          console.log(distance);
+
+          request = {
+            location:  new google.maps.LatLng(lat, lng),
+            radius: distance,
+            query: type,
             types: ['food', 'restaurant'],
             rankBy: google.maps.places.RankBy.DISTANCE,
           };

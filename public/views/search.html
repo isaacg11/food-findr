@@ -1,10 +1,10 @@
-<div ng-controller="homeController">
+<div ng-controller="searchController">
   <div class="row">
     <div class="col s2 blend">.</div>
 	  <div class="col s8 z-depth-2 places-centerDiv">
 		<div class="row header-Parent">
 			<div class="col s6 places-title">
-				<h2 class="app-title">Food Findr</h2>
+				<h2 ui-sref="Home" class="app-title">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
 <!--TEXT SEARCH-->
@@ -50,7 +50,7 @@
       </div>
       <div class="col s3">
         <a
-          ui-sref="Search({search: [data.types, data.distance]})" 
+          ui-sref="Details({search: [data.types, data.distance]})" 
           class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
       </div>
       <div class="col s1">.</div>

@@ -4,10 +4,28 @@
   'use strict';
   angular.module('stamplay')
   .controller('directionsController', directionsController);
-  directionsController.$inject = ['Geo','$state',"$http","$scope", "$stamplay",'uiGmapGoogleMapApi','$window','$stateParams'];
+  directionsController.$inject = [
+    'Geo',
+    '$state',
+    "$http",
+    "$scope", 
+    "$stamplay",
+    'uiGmapGoogleMapApi',
+    '$window',
+    '$stateParams'
+  ];
 
-  function directionsController(Geo, $state, $http, $scope, $stamplay, uiGmapGoogleMapApi, $window, $stateParams){
-
+  function directionsController(
+    Geo, 
+    $state, 
+    $http, 
+    $scope, 
+    $stamplay, 
+    uiGmapGoogleMapApi, 
+    $window, 
+    $stateParams
+    )
+  {
 //GLOBALS
     var sep, 
         coords, 
@@ -41,6 +59,5 @@
           document.getElementById('output').innerHTML += elemStrName;
         }
     });
-
-}
+  }
 })();
