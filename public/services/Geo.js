@@ -262,19 +262,15 @@
             animation: google.maps.Animation.BOUNCE
           });
 
-          console.log(type);
-          console.log(distance);
-
           request = {
             location:  new google.maps.LatLng(lat, lng),
             radius: distance,
-            query: type,
-            types: ['food', 'restaurant'],
-            rankBy: google.maps.places.RankBy.DISTANCE,
+            keyword: type,
+            types: ['food', 'restaurant']
           };
 
           service = new google.maps.places.PlacesService(map);
-          service.textSearch(request, callback);
+          service.nearbySearch(request, callback);
 
           function callback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
