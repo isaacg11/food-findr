@@ -42,6 +42,7 @@
 
     	Geo.getPlaces().then(function(res){
     		$scope.desc = res;
+        $scope.map = document.getElementById('map');
     	});
 
   }

@@ -45,13 +45,12 @@
     }
 
     Geo.getDirections(place_coords).then(function(res){
+      $scope.desc = res;
     	var num = 0;
-        $scope.duration = res.routes[0].legs[0].duration.text;
         instructions = res.routes[0].legs[0].steps;
         for(var i = 0; i<instructions.length; i++){
           num = num + 1;
           step = instructions[i].instructions;
-          $scope.duration = instructions[i].duration.text;
           distance = instructions[i].distance.text;
           elemStrName = "<div>" + "<ul>";
           elemStrName += "<li>"+"<b>"+num+"."+"</b>"+" "+step+" "+"("+distance+")"+"</li>"; 

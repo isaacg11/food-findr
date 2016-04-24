@@ -26,6 +26,8 @@
     $stateParams
     )
   {
+
+//VARIABLES  
     var params,
         type,
         distance,
@@ -33,6 +35,7 @@
         dist,
         sep;
 
+//GET SEARCH PARAMETERS AND DISPLAY ON PAGE LOAD  
     if($stateParams.search) {
       params = $stateParams.search;
       sep = params.split(',');

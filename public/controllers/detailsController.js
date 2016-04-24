@@ -24,6 +24,8 @@
     $stateParams
     )
   {
+
+  $scope.details = document.getElementById('details');
 //VARIABLES
     var params,
         emptyParams,

@@ -57,10 +57,19 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	height: 3px;
 	background-color: #ffff66;
 }
+.spinnerSection{
+	color: #fff;
+}
 .places-dropdown{
 	margin-left: 10px;
 	margin-bottom: 20px;
 	margin-top: 0px;
+}
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 1.2rem;
+    color: #000000;
+    display: block;
+    padding: 1rem 1rem;
 }
 .opt-field{
 	margin-top: 0px;

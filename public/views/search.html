@@ -25,7 +25,13 @@
     </div>
     <div class="dvdr"></div>
 <!--ADVANCED SEARCH-->
-    <div class="row places-dropdown">
+    <div class="row spinnerSection" ng-hide="desc">
+      <div class="col s12 center">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+        <span class="sr-only">FINDING FOOD...</span>
+      </div>
+    </div>
+    <div class="row places-dropdown" ng-hide="!desc">
       <div class="input-field opt-field col s2">
         <select 
           ng-model="type"

@@ -20,13 +20,19 @@
           				type="submit" 
           				value="Submit" 
           				ui-sref="Details({search: [search.geometry.access_points[0].location.lat, search.geometry.access_points[0].location.lng, search.place_id, search]})"/>
-          		</form>
-          	</div>
-        	</div>
-        	<div class="dvdr"></div>
+        </form>
+        </div>
+        </div>
+        <div class="dvdr"></div>
 <!--ADVANCED SEARCH-->
-    <div class="row places-dropdown">
-      <div class="input-field opt-field col s2">
+        <div class="row spinnerSection" ng-hide="desc">
+          <div class="col s12 center">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+            <span class="sr-only">GETTING DIRECTIONS...</span>
+          </div>
+        </div>
+        <div class="row places-dropdown" ng-hide="!desc">
+        <div class="input-field opt-field col s2">
         <select ng-model="data.types">
           <option value="" disabled selected>Food Type</option>
           <option value="Fast Food">Fast Food</option>
