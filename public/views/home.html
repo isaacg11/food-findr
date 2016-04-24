@@ -26,20 +26,28 @@
     <div class="dvdr"></div>
 <!--ADVANCED SEARCH-->
     <div class="row places-dropdown">
-      <div class="col s3">
-        <select ng-model="data.types" class="browser-default">
+      <div class="input-field opt-field col s2">
+        <select ng-model="data.types">
           <option value="" disabled selected>Food Type</option>
           <option value="Fast Food">Fast Food</option>
+          <option value="Seafood">Seafood</option>
           <option value="Diner">Diner</option>
-          <option value="Mexican">Mexican</option>
           <option value="BBQ">BBQ</option>
+          <option value="Steakhouse">Steakhouse</option>
+          <option value="Deli">Deli</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Italian">Italian</option>
           <option value="Chinese">Chinese</option>
-          <option value="Sushi">Sushi</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Thai">Thai</option>
+          <option value="Vietnamese">Vietnamese</option>
           <option value="Indian">Indian</option>
+          <option value="Greek">Greek</option>
+          <option value="Mediterranean">Mediterranean</option>
         </select>
       </div>
-      <div class="col s3">
-        <select ng-model="data.distance" class="browser-default">
+      <div class="input-field opt-field col s2">
+        <select ng-model="data.distance">
           <option value="" disabled selected>Distance</option>
           <option value="1">1 Mile</option>
           <option value="2">2 Miles</option>
@@ -48,12 +56,12 @@
           <option value="5">5 Miles</option>
         </select>
       </div>
-      <div class="col s3">
+      <div class="col s2">
         <a
           ui-sref="Search({search: [data.types, data.distance]})" 
           class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
       </div>
-      <div class="col s1">.</div>
+      <div class="col s6">.</div>
     </div>
 <!--MAP-->
 		<div id="map"></div>
@@ -77,3 +85,9 @@
 </div>
 <!--CLOSING DIV-->
 </div>
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('select').material_select();
+    });
+</script>

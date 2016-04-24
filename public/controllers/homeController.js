@@ -24,6 +24,7 @@
     $window
     )
   {
+
 //FETCH AND DISPLAY PLACES CLOSE BY ON PAGE LOAD 
     navigator.geolocation.getCurrentPosition(showPosition);
         function showPosition(position) {
@@ -42,5 +43,6 @@
     	Geo.getPlaces().then(function(res){
     		$scope.desc = res;
     	});
+
   }
   })();

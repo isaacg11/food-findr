@@ -26,37 +26,46 @@
     <div class="dvdr"></div>
 <!--ADVANCED SEARCH-->
     <div class="row places-dropdown">
-      <div class="col s3">
-        <select ng-model="types" class="browser-default">
-          <option value="" disabled selected>Food Type</option>
-          <option value="Fast Food">Fast Food</option>
-          <option value="Diner">Diner</option>
-          <option value="Mexican">Mexican</option>
-          <option value="BBQ">BBQ</option>
-          <option value="Chinese">Chinese</option>
-          <option value="Sushi">Sushi</option>
-          <option value="Indian">Indian</option>
+      <div class="input-field opt-field col s2">
+        <select 
+          ng-model="type"
+          ng-options="type.name for type in types track by type.name">
+          <option ng-model="type" disabled selected>{{type.name}}</option>
+          <option ng-model="type">Fast Food</option>
+          <option ng-model="type">Seafood</option>
+          <option ng-model="type">Diner</option>
+          <option ng-model="type">BBQ</option>
+          <option ng-model="type">Steakhouse</option>
+          <option ng-model="type">Deli</option>
+          <option ng-model="type">Mexican</option>
+          <option ng-model="type">Italian</option>
+          <option ng-model="type">Chinese</option>
+          <option ng-model="type">Japanese</option>
+          <option ng-model="type">Thai</option>
+          <option ng-model="type">Vietnamese</option>
+          <option ng-model="type">Indian</option>
+          <option ng-model="type">Greek</option>
+          <option ng-model="type">Mediterranean</option>
         </select>
       </div>
-      <div class="col s3">
+      <div class="col s2 input-field opt-field">
         <select 
           ng-model="item"
-          ng-options="item.name for item in items track by item.name"
-          class="browser-default">
-          <option value="" disabled selected>Distance</option>
-          <option value="1">1 Mile</option>
-          <option value="2">2 Miles</option>
-          <option value="3">3 Miles</option>
-          <option value="4">4 Miles</option>
-          <option value="5">5 Miles</option>
+          ng-options="item.name for item in items track by item.name">
+          <option ng-model="item" disabled selected>{{item.name}}</option>
+          <option ng-model="item">1 Mile</option>
+          <option ng-model="item">2 Miles</option>
+          <option ng-model="item">3 Miles</option>
+          <option ng-model="item">4 Miles</option>
+          <option ng-model="item">5 Miles</option>
         </select>
       </div>
-      <div class="col s3">
+      <div class="col s2">
         <a
-          ui-sref="Details({search: [data.types, data.distance]})" 
+          ui-sref="Search({search: [type.name, item.name]})" 
           class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
       </div>
-      <div class="col s1">.</div>
+      <div class="col s6">.</div>
     </div>
 <!--MAP-->
 		<div id="map"></div>
@@ -80,3 +89,9 @@
 </div>
 <!--CLOSING DIV-->
 </div>
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('select').material_select();
+    });
+</script>

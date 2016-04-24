@@ -37,6 +37,7 @@ html {
 }
 .search-Parent{
 	margin-top: 35px;
+	padding-right: 0px !important;
 	color: #fff;
 }
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
@@ -58,7 +59,12 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 .places-dropdown{
 	margin-left: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 0px;
+}
+.opt-field{
+	margin-top: 0px;
+	color: #fff;
 }
 #map {
 	margin-left: 20px;
@@ -68,14 +74,14 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	border-radius: 5px;
 }
 .findBtn{
-	margin-top: 3px;
+	margin-top: 5px;
 	background-color: #333333;
-	border: 1px solid #fff;
+	border: 1px solid #666666;
 	width: 100%;
 	height: 40px;
 }
 .findBtn:hover{
-	margin-top: 3px;
+	margin-top: 5px;
 	background-color: #fff;
 	border: 1px solid #333333;
 	width: 100%;
@@ -135,7 +141,6 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 }
 /*DETAILS*/
 .details-centerDiv{
-	margin-top:20px;
 	border-radius: 10px;
 	background: #333333;
 	padding-left: 10px;
@@ -143,9 +148,10 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	min-height: 100vh;
 }
 #details{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
 	height: 50%;
-	margin-left: 10px;
-	margin-right: 10px;
 	border-radius: 5px;
 }
 .details-Parent{

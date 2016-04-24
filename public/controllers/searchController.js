@@ -40,9 +40,35 @@
       distance = sep[1];
       numMiles = parseInt(sep[1]);
       dist = numMiles * 1609;
-      $scope.types = type;
-      $scope.items = [{name: 'a'}, {name: distance+" "+"Mile(s)"}];
-      $scope.item = $scope.items[1];
+      $scope.types = [
+        {name: type}, 
+        {name: "Fast Food"},
+        {name: "Seafood"},
+        {name: "Diner"},
+        {name: "BBQ"},
+        {name: "Steakhouse"},
+        {name: "Deli"},
+        {name: "Mexican"},
+        {name: "Italian"},
+        {name: "Chinese"},
+        {name: "Japenese"},
+        {name: "Thai"},
+        {name: "Vietnamese"},
+        {name: "Indian"},
+        {name: "Greek"},
+        {name: "Mediterranean"},
+      ];
+      $scope.type = $scope.types[0];
+      
+      $scope.items = [
+        {name: distance+" "+"Mile(s)"}, 
+        {name: "1"},
+        {name: "2"},
+        {name: "3"},
+        {name: "4"},
+        {name: "5"},
+      ];
+      $scope.item = $scope.items[0];
 
       Geo.advanceSearch(type, dist).then(function(res){
         $scope.desc = res; 

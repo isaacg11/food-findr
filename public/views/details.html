@@ -1,13 +1,13 @@
 <div ng-controller="detailsController">
-
 	<div class="row background-homePage">
 	<div class="col s2 blend">.</div>
 	<div class="col s8 z-depth-2 details-centerDiv">
 		<div class="row header-Parent">
-			<div class="col s6">
+			<div class="col s6 places-title">
 				<h2 class="app-title" ui-sref="Home">Food Findr</h2>
 			</div>
 			<div class="col s6 input-field search-Parent">
+<!--TEXT SEARCH-->
 				<form>
 					<i class="fa fa-search prefix" aria-hidden="true"></i>
           			<input
@@ -24,8 +24,47 @@
           	</div>
         </div>
         <div class="dvdr"></div>
-		<div id="details"></div>
-		
+<!--ADVANCED SEARCH-->
+    <div class="row places-dropdown">
+      <div class="input-field opt-field col s2">
+        <select ng-model="data.types">
+          <option value="" disabled selected>Food Type</option>
+          <option value="Fast Food">Fast Food</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Diner">Diner</option>
+          <option value="BBQ">BBQ</option>
+          <option value="Steakhouse">Steakhouse</option>
+          <option value="Deli">Deli</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Italian">Italian</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Thai">Thai</option>
+          <option value="Vietnamese">Vietnamese</option>
+          <option value="Indian">Indian</option>
+          <option value="Greek">Greek</option>
+          <option value="Mediterranean">Mediterranean</option>
+        </select>
+      </div>
+      <div class="input-field opt-field col s2">
+        <select ng-model="data.distance">
+          <option value="" disabled selected>Distance</option>
+          <option value="1">1 Mile</option>
+          <option value="2">2 Miles</option>
+          <option value="3">3 Miles</option>
+          <option value="4">4 Miles</option>
+          <option value="5">5 Miles</option>
+        </select>
+      </div>
+      <div class="col s2">
+        <a
+          ui-sref="Search({search: [data.types, data.distance]})" 
+          class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
+      </div>
+      <div class="col s6">.</div>
+    </div>
+<!--MAP-->
+	<div id="details"></div>
 <!--PLACES OUTPUT (IF COORDS EXISTS) -->
 		<div ng-hide="textSearch" class="row details-Parent">
 			<h5 class="details-name">{{name}} <input-stars max="5" ng-model="rating" readonly="true"></input-stars></h5>
@@ -55,3 +94,8 @@
 </div>
 
 </div>
+<script>
+    jQuery(document).ready(function() {
+        jQuery('select').material_select();
+    });
+</script>
