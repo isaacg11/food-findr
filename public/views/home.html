@@ -1,15 +1,15 @@
 <div ng-controller="homeController">
   <div class="row">
-    <div class="col s2 blend">.</div>
-	  <div class="col s8 z-depth-2 places-centerDiv">
-		<div class="row header-Parent">
-			<div class="col s6 places-title">
-				<h2 class="app-title">Food Findr</h2>
-			</div>
-			<div class="col s6 input-field search-Parent">
+    <div class="col l2 m0 s0 blend">.</div>
+	  <div class="col l8 m12 s12 z-depth-2 places-centerDiv">
+		  <div class="row header-Parent">
+			  <div class="col s6 places-title">
+				  <h2 class="app-title">Food Findr</h2>
+			  </div>
+			  <div class="col s6 input-field search-Parent">
 <!--TEXT SEARCH-->
-				<form>
-					<i class="fa fa-search prefix" aria-hidden="true"></i>
+				  <form>
+					  <i class="fa fa-search prefix" aria-hidden="true"></i>
           	<input
           		placeholder="Search..."
           		type="text" 
@@ -20,78 +20,79 @@
           		type="submit" 
           		value="Submit" 
           		ui-sref="Details({search: [search.geometry.access_points[0].location.lat, search.geometry.access_points[0].location.lng, search.place_id, search]})"/>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="dvdr"></div>
+      <div class="dvdr"></div>
 <!--ADVANCED SEARCH-->
-    <div class="row spinnerSection" ng-hide="map">
-      <div class="col s12 center">
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
-        <span class="sr-only">FINDING FOOD...</span>
+      <div class="row spinnerSection" ng-hide="map">
+        <div class="col s12 center">
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+          <span class="sr-only">FINDING FOOD...</span>
+        </div>
       </div>
-    </div>
-    <div class="row places-dropdown" ng-hide="!map">
-      <div class="input-field opt-field col s2">
-        <select ng-model="data.types">
-          <option value="" disabled selected>Food Type</option>
-          <option value="Fast Food">Fast Food</option>
-          <option value="Seafood">Seafood</option>
-          <option value="Diner">Diner</option>
-          <option value="BBQ">BBQ</option>
-          <option value="Steakhouse">Steakhouse</option>
-          <option value="Deli">Deli</option>
-          <option value="Mexican">Mexican</option>
-          <option value="Italian">Italian</option>
-          <option value="Chinese">Chinese</option>
-          <option value="Japanese">Japanese</option>
-          <option value="Thai">Thai</option>
-          <option value="Vietnamese">Vietnamese</option>
-          <option value="Indian">Indian</option>
-          <option value="Greek">Greek</option>
-          <option value="Mediterranean">Mediterranean</option>
-        </select>
+      <div class="row places-dropdown" ng-hide="!map">
+        <div class="input-field opt-field col s2">
+          <select ng-model="data.types">
+            <option value="" disabled selected>Food Type</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Diner">Diner</option>
+            <option value="BBQ">BBQ</option>
+            <option value="Steakhouse">Steakhouse</option>
+            <option value="Deli">Deli</option>
+            <option value="Mexican">Mexican</option>
+            <option value="Italian">Italian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Thai">Thai</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Indian">Indian</option>
+            <option value="Greek">Greek</option>
+            <option value="Mediterranean">Mediterranean</option>
+          </select>
+        </div>
+        <div class="input-field opt-field col s2">
+          <select ng-model="data.distance">
+            <option value="" disabled selected>Distance</option>
+            <option value="1">1 Mile</option>
+            <option value="2">2 Miles</option>
+            <option value="3">3 Miles</option>
+            <option value="4">4 Miles</option>
+            <option value="5">5 Miles</option>
+          </select>
+        </div>
+        <div class="col s2">
+          <a
+            ui-sref="Search({search: [data.types, data.distance]})" 
+            class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
+        </div>
+        <div class="col s6">.</div>
       </div>
-      <div class="input-field opt-field col s2">
-        <select ng-model="data.distance">
-          <option value="" disabled selected>Distance</option>
-          <option value="1">1 Mile</option>
-          <option value="2">2 Miles</option>
-          <option value="3">3 Miles</option>
-          <option value="4">4 Miles</option>
-          <option value="5">5 Miles</option>
-        </select>
-      </div>
-      <div class="col s2">
-        <a
-          ui-sref="Search({search: [data.types, data.distance]})" 
-          class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
-      </div>
-      <div class="col s6">.</div>
-    </div>
 <!--MAP-->
-		<div id="map"></div>
+		  <div id="map"></div>
 <!--PLACES OUTPUT-->
-    <p class="places-info">Food Results</p>
-		<div ng-repeat="d in desc" class="row places-Parent">
-			<div 
-				class="col s12 places-detailsBtn" 
-				ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
-        <p class="places-name">{{d.name}}</p>
-			</div>
-		</div>
+      <p class="places-info">Food Results</p>
+		  <div ng-repeat="d in desc" class="row places-Parent">
+			  <div 
+				  class="col s12 places-detailsBtn" 
+				  ui-sref="Details({search: [d.geometry.location.lat(), d.geometry.location.lng(), d.place_id]})">
+          <p class="places-name">{{d.name}}</p>
+			  </div>
+		  </div>
 <!--FOOTER-->
-    <div class="row footer">
-      <div class="col s12 places-footer center">
-        <p>@2016 Food Findr</p>
+      <div class="row footer">
+        <div class="col s12 places-footer center">
+          <p>@2016 Food Findr</p>
+        </div>
       </div>
-    </div>
-	</div>
-	<div class="col s2 blend">.</div>
-</div>
+	  </div>
+	  <div class="col l2 m0 s0 blend">.</div>
+  </div>
 <!--CLOSING DIV-->
 </div>
 
+<!--INIT DROPDOWN SELECT-->
 <script>
     jQuery(document).ready(function() {
         jQuery('select').material_select();
