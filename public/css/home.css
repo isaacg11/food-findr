@@ -9,11 +9,19 @@ html {
 }
 .blend{
 	color: #cccccc !important;
+	height: 1px;
 }
 .places-centerDiv{
-	/*margin-top:40px;*/
 	border-radius: 10px;
 	background: #333333;
+}
+@media only screen and (max-width: 400px) {
+	.places-centerDiv{
+	border-radius: 0px;
+	background: #333333;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	}
 }
 .header-Parent{
 	margin-bottom: 0px;
@@ -35,10 +43,22 @@ html {
 	color: #fff;
 	cursor: pointer;
 }
+@media only screen and (max-width: 400px) {
+	.app-title{
+	display: none;
+	}
+}
 .search-Parent{
 	margin-top: 35px;
 	padding-right: 0px !important;
 	color: #fff;
+}
+@media only screen and (max-width: 400px) {
+	.search-Parent{
+	margin-top: 25px;
+	padding-right: 0px !important;
+	color: #fff;
+	}
 }
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #fff;
@@ -67,6 +87,13 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	margin-bottom: 20px;
 	margin-top: 0px;
 }
+.@media only screen and (max-width: 400px) {
+	.places-dropdown{
+	margin-left: 10px;
+	margin-bottom: 0px !important;
+	margin-top: 0px;
+	}
+}
 .dropdown-content li > a, .dropdown-content li > span {
     font-size: 1.2rem;
     color: #000000;
@@ -83,6 +110,15 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	margin-bottom: 20px;
 	height: 50%;
 	border-radius: 5px;
+}
+@media only screen and (max-width: 400px) {
+	#map {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	height: 35%;
+	border-radius: 0px;
+	}
 }
 .findBtn{
 	margin-top: 5px;
@@ -158,12 +194,29 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 	padding-right: 10px;
 	min-height: 100vh;
 }
+@media only screen and (max-width: 400px) {
+	.details-centerDiv{
+	border-radius: 0px;
+	background: #333333;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	}
+}
 #details{
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-bottom: 20px;
 	height: 50%;
 	border-radius: 5px;
+}
+@media only screen and (max-width: 400px) {
+	#details {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	height: 35%;
+	border-radius: 0px;
+	}
 }
 .details-Parent{
 	margin-top: 10px;

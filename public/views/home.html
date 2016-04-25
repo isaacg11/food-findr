@@ -3,10 +3,10 @@
     <div class="col l2 m0 s0 blend">.</div>
 	  <div class="col l8 m12 s12 z-depth-2 places-centerDiv">
 		  <div class="row header-Parent">
-			  <div class="col s6 places-title">
+			  <div class="col l6 m6 s12 places-title">
 				  <h2 class="app-title">Food Findr</h2>
 			  </div>
-			  <div class="col s6 input-field search-Parent">
+			  <div class="col l6 m6 s12 input-field search-Parent">
 <!--TEXT SEARCH-->
 				  <form>
 					  <i class="fa fa-search prefix" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
           </form>
         </div>
       </div>
-      <div class="dvdr"></div>
+      <div class="dvdr hide-on-small-and-down"></div>
 <!--ADVANCED SEARCH-->
       <div class="row spinnerSection" ng-hide="map">
         <div class="col s12 center">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="row places-dropdown" ng-hide="!map">
-        <div class="input-field opt-field col s2">
+        <div class="col 12 m2 s4 input-field opt-field">
           <select ng-model="data.types">
             <option value="" disabled selected>Food Type</option>
             <option value="Fast Food">Fast Food</option>
@@ -52,7 +52,7 @@
             <option value="Mediterranean">Mediterranean</option>
           </select>
         </div>
-        <div class="input-field opt-field col s2">
+        <div class="input-field opt-field col 12 m2 s4">
           <select ng-model="data.distance">
             <option value="" disabled selected>Distance</option>
             <option value="1">1 Mile</option>
@@ -62,12 +62,12 @@
             <option value="5">5 Miles</option>
           </select>
         </div>
-        <div class="col s2">
+        <div class="col 12 m2 s4">
           <a
             ui-sref="Search({search: [data.types, data.distance]})" 
             class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
         </div>
-        <div class="col s6">.</div>
+        <div class="col 16 m6 s0">.</div>
       </div>
 <!--MAP-->
 		  <div id="map"></div>

@@ -1,12 +1,12 @@
 <div ng-controller="searchController">
   <div class="row">
-    <div class="ol l2 m0 s0 blend">.</div>
+    <div class="col l2 m0 s0 blend">.</div>
 	  <div class="col l8 m12 s12 z-depth-2 places-centerDiv">
 		<div class="row header-Parent">
 			<div class="col s6 places-title">
 				<h2 ui-sref="Home" class="app-title">Food Findr</h2>
 			</div>
-			<div class="col s6 input-field search-Parent">
+			<div class="col l6 m6 s12 input-field search-Parent">
 <!--TEXT SEARCH-->
 				<form>
 					<i class="fa fa-search prefix" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
         </form>
       </div>
     </div>
-    <div class="dvdr"></div>
+    <div class="dvdr hide-on-small-and-down"></div>
 <!--ADVANCED SEARCH-->
     <div class="row spinnerSection" ng-hide="desc">
       <div class="col s12 center">
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="row places-dropdown" ng-hide="!desc">
-      <div class="input-field opt-field col s2">
+      <div class="col 12 m2 s4 input-field opt-field">
         <select 
           ng-model="type"
           ng-options="type.name for type in types track by type.name">
@@ -54,7 +54,7 @@
           <option ng-model="type">Mediterranean</option>
         </select>
       </div>
-      <div class="col s2 input-field opt-field">
+      <div class="col 12 m2 s4 input-field opt-field">
         <select 
           ng-model="item"
           ng-options="item.name for item in items track by item.name">
@@ -66,12 +66,12 @@
           <option ng-model="item">5 Miles</option>
         </select>
       </div>
-      <div class="col s2">
+      <div class="col 12 m2 s4">
         <a
           ui-sref="Search({search: [type.name, item.name]})" 
           class="waves-effect waves-light btn findBtn z-depth-0">Find</a>
       </div>
-      <div class="col s6">.</div>
+      <div class="col 16 m6 s0">.</div>
     </div>
 <!--MAP-->
 		<div id="map"></div>
