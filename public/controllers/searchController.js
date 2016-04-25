@@ -26,7 +26,9 @@
     $stateParams
     )
   {
-
+    
+//SCROLL TO TOP ON PAGE LOAD
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 //VARIABLES  
     var params,
         type,

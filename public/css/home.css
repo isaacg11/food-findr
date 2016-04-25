@@ -11,6 +11,9 @@ html {
 	color: #cccccc !important;
 	height: 1px;
 }
+.darkBlend{
+	color: #333333;
+}
 .places-centerDiv{
 	border-radius: 10px;
 	background: #333333;
