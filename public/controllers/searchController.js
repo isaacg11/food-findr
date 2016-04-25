@@ -74,7 +74,12 @@
       $scope.item = $scope.items[0];
 
       Geo.advanceSearch(type, dist).then(function(res){
-        $scope.desc = res; 
+        if(res === "No Food Found, Sorry"){
+          $scope.err = res;
+        }
+        else{
+          $scope.desc = res; 
+        }
       });
     }
 

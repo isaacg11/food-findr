@@ -289,6 +289,9 @@
               }
               q.resolve(results);
             }
+            else{
+              q.resolve('No Food Found, Sorry');
+            }
           }
         }
        return q.promise;
